@@ -1,0 +1,20 @@
+{% extends 'Nav_bar_Unlock.html' %}
+
+
+{% block title %}File Sharing 
+{% endblock title %}
+
+
+{% block body %}
+<h1> List Of Uploaded Item<h1/>
+
+{% for document in file %}
+<div class="rounded mx-auto d-block" >
+    {% load static %}
+        <p class="d-inline-flex gap-1">
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="{% url 'Client_User:download_file' file_id=document.id %}" role="button" aria-expanded="false" aria-controls="collapseExample" src="{% static document.File %}">
+                {{document.id  }} {{document.file_name_substring  }}
+            </a>
+<div/>
+{% endfor %}
+{% endblock body %}
